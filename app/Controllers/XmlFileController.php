@@ -73,26 +73,26 @@ function saveDataToXmlFile($data, $lineCount){
         $laptops->appendChild($laptop);
 
         /* manufacturer tag */
-        $manufacturer = $file->createElement("manufacturer", 'asus');
+        $manufacturer = $file->createElement("manufacturer", $data[$i][0]);
         $laptop->appendChild($manufacturer);
 
         /* screen tag */
         $screen = $file->createElement("screen");
         $screenAttribute = $file->createAttribute('touch');
-        $screenAttribute->value = 'no';
+        $screenAttribute->value = $data[$i][4];
         $screen->appendChild($screenAttribute);
         $laptop->appendChild($screen);
 
             /* size tag */
-            $size = $file->createElement("size");
+            $size = $file->createElement("size", $data[$i][1]);
             $screen->appendChild($size);
 
             /* resolution tag */
-            $resolution = $file->createElement("resolution");
+            $resolution = $file->createElement("resolution",$data[$i][2]);
             $screen->appendChild($resolution);
 
             /* type tag */
-            $type = $file->createElement("type");
+            $type = $file->createElement("type", $data[$i][3]);
             $screen->appendChild($type);
 
 
@@ -101,32 +101,32 @@ function saveDataToXmlFile($data, $lineCount){
         $laptop->appendChild($processor);
 
             /* name tag */
-            $name = $file->createElement("name");
+            $name = $file->createElement("name", $data[$i][5]);
             $processor->appendChild($name);
 
             /* physical_cores tag */
-            $physical_cores = $file->createElement("physical_cores");
+            $physical_cores = $file->createElement("physical_cores", $data[$i][6]);
             $processor->appendChild($physical_cores);
 
             /* clock_speed tag */
-            $clock_speed = $file->createElement("clock_speed");
+            $clock_speed = $file->createElement("clock_speed", $data[$i][7]);
             $processor->appendChild($clock_speed);
 
 
         /* ram tag */
-        $ram = $file->createElement("ram", 'asus');
+        $ram = $file->createElement("ram", $data[$i][8]);
         $laptop->appendChild($ram);
 
 
         /* disc tag */
         $disc = $file->createElement("disc");
         $discAttribute = $file->createAttribute('type');
-        $discAttribute->value = 'SSD';
+        $discAttribute->value = $data[$i][10];
         $disc->appendChild($discAttribute);
         $laptop->appendChild($disc);
 
             /* storage tag */
-            $storage = $file->createElement("storage");
+            $storage = $file->createElement("storage", $data[$i][9]);
             $disc->appendChild($storage);
 
 
@@ -135,19 +135,19 @@ function saveDataToXmlFile($data, $lineCount){
         $laptop->appendChild($graphic_card);
 
             /* name tag */
-            $name = $file->createElement("name");
+            $name = $file->createElement("name", $data[$i][11]);
             $graphic_card->appendChild($name);
 
             /* memory tag */
-            $memory = $file->createElement("memory");
+            $memory = $file->createElement("memory", $data[$i][12]);
             $graphic_card->appendChild($memory);
 
         /* os tag */
-        $os = $file->createElement("os", 'Windows');
+        $os = $file->createElement("os", $data[$i][13]);
         $laptop->appendChild($os);
 
         /* disc_reader tag */
-        $disc_reader = $file->createElement("disc_reader", 'Blu-Ray');
+        $disc_reader = $file->createElement("disc_reader", $data[$i][14]);
         $laptop->appendChild($disc_reader);
 
     }
@@ -156,7 +156,7 @@ function saveDataToXmlFile($data, $lineCount){
 
     $xmlString = file_get_contents('test.xml');
     unlink('test.xml');
-    unlink('katalog.xml');
+    unlink('../../resources/dataFiles/katalog.xml');
     $xmlString = str_replace('<?xml version="1.0"?>'."\n", '', $xmlString);
-    file_put_contents("katalog.xml", $xmlString, FILE_APPEND);
+    file_put_contents("../../resources/dataFiles/katalog.xml", $xmlString, FILE_APPEND);
 }

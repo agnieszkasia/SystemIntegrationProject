@@ -1,48 +1,48 @@
-<laptops moddate="2021-03-30 T 13:13">
+<laptops moddate="2021-03-30 T 13:21">
   <laptop id="1">
-    <manufacturer>asus</manufacturer>
-    <screen touch="no">
-      <size/>
-      <resolution/>
-      <type/>
+    <manufacturer>Asus</manufacturer>
+    <screen touch="nie">
+      <size>12"</size>
+      <resolution>1600x900</resolution>
+      <type>matowa</type>
     </screen>
     <processor>
-      <name/>
-      <physical_cores/>
-      <clock_speed/>
+      <name>i7</name>
+      <physical_cores>8</physical_cores>
+      <clock_speed>3200</clock_speed>
     </processor>
-    <ram>asus</ram>
+    <ram>8GB</ram>
     <disc type="SSD">
-      <storage/>
+      <storage>240GB</storage>
     </disc>
     <graphic_card>
-      <name/>
-      <memory/>
+      <name>intel HD Graphics 4000</name>
+      <memory>1GB</memory>
     </graphic_card>
-    <os>Windows</os>
+    <os>Windows 7 Home</os>
     <disc_reader>Blu-Ray</disc_reader>
   </laptop>
   <laptop id="2">
-    <manufacturer>asus</manufacturer>
-    <screen touch="no">
-      <size/>
-      <resolution/>
+    <manufacturer>Dell</manufacturer>
+    <screen touch="tak">
+      <size>16"</size>
+      <resolution>1376x768</resolution>
       <type/>
     </screen>
     <processor>
-      <name/>
-      <physical_cores/>
+      <name>i5</name>
+      <physical_cores>4</physical_cores>
       <clock_speed/>
     </processor>
-    <ram>asus</ram>
-    <disc type="SSD">
-      <storage/>
+    <ram>16GB</ram>
+    <disc type="">
+      <storage>120GB</storage>
     </disc>
     <graphic_card>
-      <name/>
-      <memory/>
+      <name>intel HD Graphics 5000</name>
+      <memory>2GB</memory>
     </graphic_card>
-    <os>Windows</os>
-    <disc_reader>Blu-Ray</disc_reader>
+    <os>Windows Vista</os>
+    <disc_reader>brak</disc_reader>
   </laptop>
 </laptops>

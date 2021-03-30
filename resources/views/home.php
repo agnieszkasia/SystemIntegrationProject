@@ -43,11 +43,6 @@
                         <th><div >Rodzaj napedu fizycznego</div></th>
                     </tr>
                     </thead>
-
-<!--                    --><?php
-//                    require '../../app/Controllers/Controller.php'; ?>
-
-
                 </table>
                 </div>
             </div>
@@ -55,15 +50,5 @@
     </main>
 </div>
 
-<script>
-    function onrequest() {
-        $.post(
-            'example.php'
-        ).success(function(resp){
-            json = $.parseJSON(resp);
-            alert(json);
-        });
-    }
-</script>
 </body>
 </html>
