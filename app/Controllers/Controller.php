@@ -36,7 +36,6 @@ if (array_key_exists('exportXmlFile', $_POST)){
     $lineCount = count($data);
 
     require_once ('XmlFileController.php');
-//    echo 'czesc';
     saveDataToXmlFile($data, $lineCount);
     showData($data, $lineCount);
 }

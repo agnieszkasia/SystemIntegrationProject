@@ -1,19 +1,19 @@
-<laptops moddate="2021-03-30 T 14:08">
+<laptops moddate="2021-03-30 T 15:21">
   <laptop id="1">
     <manufacturer>Dell</manufacturer>
     <screen touch="nie">
       <size>12"</size>
       <resolution/>
-      <type/>
+      <type>matowa</type>
     </screen>
     <processor>
       <name>intel i7</name>
-      <physical_cores>4</physical_cores>
-      <clock_speed>2800</clock_speed>
+      <physical_cores/>
+      <clock_speed>1234</clock_speed>
     </processor>
-    <ram>8GB</ram>
+    <ram/>
     <disc type="SSD">
-      <storage>1GB</storage>
+      <storage>240GB</storage>
     </disc>
     <graphic_card>
       <name>intel HD Graphics 4000</name>
@@ -30,13 +30,13 @@
       <type>matowa</type>
     </screen>
     <processor>
-      <name>intel i5</name>
+      <name/>
       <physical_cores>4</physical_cores>
       <clock_speed/>
     </processor>
     <ram>16GB</ram>
     <disc type="SSD">
-      <storage>3GB</storage>
+      <storage>120GB</storage>
     </disc>
     <graphic_card>
       <name>intel HD Graphics 5000</name>
@@ -117,7 +117,7 @@
   <laptop id="6">
     <manufacturer>Dell</manufacturer>
     <screen touch="nie">
-      <size>17"</size>
+      <size/>
       <resolution>1280x800</resolution>
       <type>matowa</type>
     </screen>
@@ -142,7 +142,7 @@
     <screen touch="nie">
       <size>14"</size>
       <resolution>1600x900</resolution>
-      <type/>
+      <type>matowa</type>
     </screen>
     <processor>
       <name>intel i5</name>
@@ -220,7 +220,7 @@
     </processor>
     <ram>8GB</ram>
     <disc type="">
-      <storage>24GB</storage>
+      <storage/>
     </disc>
     <graphic_card>
       <name>AMD Radeon Pro 455</name>
@@ -243,7 +243,7 @@
     </processor>
     <ram/>
     <disc type="">
-      <storage>3GB</storage>
+      <storage/>
     </disc>
     <graphic_card>
       <name>intel HD Graphics 4000</name>
@@ -266,7 +266,7 @@
     </processor>
     <ram/>
     <disc type="SSD">
-      <storage>24GB</storage>
+      <storage/>
     </disc>
     <graphic_card>
       <name>intel HD Graphics 5000</name>
@@ -280,7 +280,7 @@
     <screen touch="tak">
       <size>15"</size>
       <resolution>1920x1080</resolution>
-      <type/>
+      <type>blyszczaca</type>
     </screen>
     <processor>
       <name>intel i7</name>
@@ -393,7 +393,7 @@
   <laptop id="18">
     <manufacturer>Asus</manufacturer>
     <screen touch="tak">
-      <size>17"</size>
+      <size/>
       <resolution>1600x900</resolution>
       <type>blyszczaca</type>
     </screen>
@@ -496,7 +496,7 @@
     </processor>
     <ram>8GB</ram>
     <disc type="">
-      <storage>24GB</storage>
+      <storage/>
     </disc>
     <graphic_card>
       <name>AMD Radeon Pro 455</name>
@@ -519,7 +519,7 @@
     </processor>
     <ram/>
     <disc type="">
-      <storage>24GB</storage>
+      <storage/>
     </disc>
     <graphic_card>
       <name>intel HD Graphics 4000</name>
@@ -542,7 +542,7 @@
     </processor>
     <ram/>
     <disc type="SSD">
-      <storage>24GB</storage>
+      <storage/>
     </disc>
     <graphic_card>
       <name>intel HD Graphics 4000</name>

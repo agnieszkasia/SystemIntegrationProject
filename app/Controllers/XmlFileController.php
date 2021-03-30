@@ -63,6 +63,16 @@ function saveDataToXmlFile($data, $lineCount){
     $laptops->appendChild($laptopsAttribute);
     $file->appendChild($laptops);
 
+    /* konwersja z wertości 'Brak danych' na puste pole */
+    for ($i = 0; $i<$lineCount;$i++){
+        for ($j =0; $j<count($data[$i]); $j++){
+            if ($data[$i][$j] == 'Brak danych'){
+                $data[$i][$j] = '';
+            }
+        }
+    }
+
+
     for ($i = 0; $i<$lineCount; $i++){
 
         /* laptop tag */

@@ -13,8 +13,7 @@
 
 </head>
 <body>
-<div id="app">
-    <main class="py-4">
+    <div id="app">
         <div class="container-fluid">
             <div class="row">
                 <form method="post" action="../../app/Controllers/Controller.php">
@@ -52,7 +51,7 @@
                             <tr>
                                 <td><input style='width: 100px' name = 'data[<?php echo $i?>][0]' value='<?php if ($_SESSION["data"][$i][0] != ''){ echo $_SESSION["data"][$i][0];} else echo 'Brak danych' ?>' pattern='[A-Za-z]{2,}' required></td>
                                 <td><input style='width: 70px' name = 'data[<?php echo $i?>][1]' value='<?php if ($_SESSION["data"][$i][1] != ''){ echo $_SESSION["data"][$i][1];} else echo 'Brak danych' ?>' pattern='/[0-9]{2}\"/gm' required></td>
-                                <td><input style='width: 100px' name = 'data[<?php echo $i ?>][2]' value='<?php if ($_SESSION["data"][$i][2] != ''){ echo $_SESSION["data"][$i][2];} else echo 'Brak danych' ?>' pattern='[0-9]{3,4}x[0-9]{3,4}'></td>
+                                <td><input style='width: 100px' name = 'data[<?php echo $i ?>][2]' value='<?php if ($_SESSION["data"][$i][2] != ''){ echo $_SESSION["data"][$i][2];} else echo 'Brak danych' ?>' pattern='[0-9]{3,4}x[0-9]{3,4}|Brak danych'></td>
                                 <td><select style='width: 120px' name = 'data[<?php echo $i ?>][3]'>
                                         <option value="blyszczaca" <?php if ($_SESSION["data"][$i][3]=='blyszczaca'){?> selected="selected" <?php }?>>Blyszczaca</option>
                                         <option value="matowa" <?php if ($_SESSION["data"][$i][3]=='matowa'){?> selected="selected" <?php }?>>Matowa</option>
@@ -68,11 +67,11 @@
                                         </option>
                                     </select>
                                 </td>
-                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][5]' value='<?php if ($_SESSION["data"][$i][5] != ''){ echo $_SESSION["data"][$i][5];} else echo 'Brak danych' ?>'  pattern='{2,}'></td>
-                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][6]' value='<?php if ($_SESSION["data"][$i][6] != ''){ echo $_SESSION["data"][$i][6];} else echo 'Brak danych' ?>' pattern='[1-9]{1}'></td>
-                                <td><input style='width: 130px' name = 'data[<?php echo $i ?>][7]' value='<?php if ($_SESSION["data"][$i][7] != ''){ echo $_SESSION["data"][$i][7];} else echo 'Brak danych' ?>' pattern='[0-9]{3,4}'></td>
-                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][8]' value='<?php if ($_SESSION["data"][$i][8] != ''){ echo $_SESSION["data"][$i][8];} else echo 'Brak danych' ?>' pattern='[0-9]{1,3}GB'></td>
-                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][9]' value='<?php if ($_SESSION["data"][$i][9] != ''){ echo $_SESSION["data"][$i][9];} else echo 'Brak danych' ?>' pattern='[0-9]{1,3}GB'></td>
+                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][5]' value='<?php if ($_SESSION["data"][$i][5] != ''){ echo $_SESSION["data"][$i][5];} else echo 'Brak danych' ?>'  pattern='{2,}|Brak danych'></td>
+                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][6]' value='<?php if ($_SESSION["data"][$i][6] != ''){ echo $_SESSION["data"][$i][6];} else echo 'Brak danych' ?>' pattern='[1-9]{1}|Brak danych'></td>
+                                <td><input style='width: 130px' name = 'data[<?php echo $i ?>][7]' value='<?php if ($_SESSION["data"][$i][7] != ''){ echo $_SESSION["data"][$i][7];} else echo 'Brak danych' ?>' pattern='[0-9]{3,4}|Brak danych'></td>
+                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][8]' value='<?php if ($_SESSION["data"][$i][8] != ''){ echo $_SESSION["data"][$i][8];} else echo 'Brak danych' ?>' pattern='[0-9]{1,3}GB|Brak danych'></td>
+                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][9]' value='<?php if ($_SESSION["data"][$i][9] != ''){ echo $_SESSION["data"][$i][9];} else echo 'Brak danych' ?>' pattern='[0-9]{1,3}GB|Brak danych'></td>
                                 <td><select style='width: 80px' name = 'data[<?php echo $i ?>][10]' >
                                         <option value="SSD" <?php if ($_SESSION["data"][$i][10]=='tak'){?> selected="selected" <?php }?>>SSD</option>
                                         <option value="HDD" <?php if ($_SESSION["data"][$i][10]=='nie'){?> selected="selected" <?php }?>>HDD</option>
@@ -80,10 +79,10 @@
                                         <option value="" <?php if ($_SESSION["data"][$i][10]==''){?> selected="selected" <?php }?>>Brak danych</option>
                                     </select>
                                 </td>
-                                <td><input style='width: 170px' name = 'data[<?php echo $i ?>][11]' value='<?php if ($_SESSION["data"][$i][11] != ''){ echo $_SESSION["data"][$i][11];} else echo 'Brak danych' ?>' pattern='{2,}'></td>
-                                <td><input style='width: 100px' name = 'data[<?php echo $i ?>][12]' value='<?php if ($_SESSION["data"][$i][12] != ''){ echo $_SESSION["data"][$i][12];} else echo 'Brak danych' ?>' pattern='[0-9]{1,3}GB'></td>
-                                <td><input style='width: 170px' name = 'data[<?php echo $i ?>][13]' value='<?php if ($_SESSION["data"][$i][13] != ''){ echo $_SESSION["data"][$i][13];} else echo 'Brak danych' ?>' pattern='{2,}'></td>
-                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][14]' value='<?php if ($_SESSION["data"][$i][14] != ''){ echo $_SESSION["data"][$i][14];} else echo 'Brak danych' ?>' pattern='{2,}'></td>
+                                <td><input style='width: 170px' name = 'data[<?php echo $i ?>][11]' value='<?php if ($_SESSION["data"][$i][11] != ''){ echo $_SESSION["data"][$i][11];} else echo 'Brak danych' ?>' pattern='{2,}|Brak danych'></td>
+                                <td><input style='width: 100px' name = 'data[<?php echo $i ?>][12]' value='<?php if ($_SESSION["data"][$i][12] != ''){ echo $_SESSION["data"][$i][12];} else echo 'Brak danych' ?>' pattern='[0-9]{1,3}GB|Brak danych'></td>
+                                <td><input style='width: 170px' name = 'data[<?php echo $i ?>][13]' value='<?php if ($_SESSION["data"][$i][13] != ''){ echo $_SESSION["data"][$i][13];} else echo 'Brak danych' ?>' pattern='{2,}|Brak danych'></td>
+                                <td><input style='width: 80px' name = 'data[<?php echo $i ?>][14]' value='<?php if ($_SESSION["data"][$i][14] != ''){ echo $_SESSION["data"][$i][14];} else echo 'Brak danych' ?>' pattern='{2,}|Brak danych'></td>
                                 <td><input type="text" name="example" list="exampleList">
                                     <datalist id="exampleList">
                                         <option value="A">
@@ -96,11 +95,9 @@
 
                         </form>
                     </tbody>
-
-
                 </table>
-                </div>
             </div>
         </div>
+    </div>
 </body>
 </html>

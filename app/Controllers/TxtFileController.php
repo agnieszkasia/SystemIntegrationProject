@@ -28,6 +28,11 @@ function convertData($data, $lineCount){
     $i = 0;
     $new_data = array();
     while ($i<$lineCount){
+        for ($j =0; $j<count($data[$i]); $j++){
+            if ($data[$i][$j] == 'Brak danych'){
+                $data[$i][$j] = '';
+            }
+        }
         $new_data[$i] = implode(';',$data[$i]);
         $i++;
     }
