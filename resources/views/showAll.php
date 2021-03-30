@@ -52,6 +52,7 @@
                            <?php
                            session_start();
                            $i=0;
+                           if(isset($_SESSION["lineCount"])){
                            for ($i=0; $i<$_SESSION["lineCount"]; $i++){ ?>
                             <tr>
                                 <td><input style='width: 100px' name = 'data[<?php echo $i?>][0]' value='<?php if ($_SESSION["data"][$i][0] != ''){ echo $_SESSION["data"][$i][0];} else echo 'Brak danych' ?>' pattern='[A-Za-z]{2,}' required></td>
@@ -89,7 +90,7 @@
                                 <td><input style='width: 170px' name = 'data[<?php echo $i ?>][13]' value='<?php if ($_SESSION["data"][$i][13] != ''){ echo $_SESSION["data"][$i][13];} else echo 'Brak danych' ?>' pattern='{2,}|Brak danych'></td>
                                 <td><input style='width: 80px' name = 'data[<?php echo $i ?>][14]' value='<?php if ($_SESSION["data"][$i][14] != ''){ echo $_SESSION["data"][$i][14];} else echo 'Brak danych' ?>' pattern='{2,}|Brak danych'></td>
                             </tr>
-                        <?php } ?>
+                        <?php }} ?>
                         <input class=' btn btn-dark m-2 mt-5' type='submit' name='exportTxtFile' id='exportTxtFile' value='EXPORTUJ DO PLIKU TXT'>
                         <input class=' btn btn-dark m-2 mt-5' type='submit' name='exportXmlFile' id='exportXmlFile' value='EXPORTUJ DO PLIKU XML'>
 
