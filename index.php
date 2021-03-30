@@ -1,7 +1,4 @@
 <?php
 
-//require 'functions.php';
-
-//list($data, $lineCount) = getData('katalog.txt');
-
-//$array = showData($data, $lineCount);
+header("Location: http://localhost:8080/projekt1/resources/views/showAll.php");
+exit;
