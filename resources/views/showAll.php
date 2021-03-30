@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>System Integration Web Application</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -15,11 +15,16 @@
 <body>
     <div id="app">
         <div class="container-fluid">
-            <div class="row">
-                <form method="post" action="../../app/Controllers/Controller.php">
-                    <input class="btn btn-dark m-2" type="submit" name="importTxtFile" id="importTxtFile" value="IMPORTUJ Z PLIKU TXT">
-                    <input class="btn btn-dark m-2" type="submit" name="importXmlFile" id="importXmlFile" value="IMPORTUJ Z PLIKU XML">
-                </form>
+            <div class="row d-flex align-items-center">
+                <h2 class=" pl-5 mb-0 mr-auto">
+                    System Integration Web Application
+                </h2>
+                    <form method="post" action="../../app/Controllers/Controller.php">
+                        <input class="btn btn-dark m-2 mt-5 " type="submit" name="importTxtFile" id="importTxtFile" value="IMPORTUJ Z PLIKU TXT">
+                        <input class="btn btn-dark m-2 mt-5" type="submit" name="importXmlFile" id="importXmlFile" value="IMPORTUJ Z PLIKU XML">
+                    </form>
+
+
                 <table class='table table-striped table-responsive'>
                     <thead class='thead-dark'>
                     <tr>
@@ -83,15 +88,10 @@
                                 <td><input style='width: 100px' name = 'data[<?php echo $i ?>][12]' value='<?php if ($_SESSION["data"][$i][12] != ''){ echo $_SESSION["data"][$i][12];} else echo 'Brak danych' ?>' pattern='[0-9]{1,3}GB|Brak danych'></td>
                                 <td><input style='width: 170px' name = 'data[<?php echo $i ?>][13]' value='<?php if ($_SESSION["data"][$i][13] != ''){ echo $_SESSION["data"][$i][13];} else echo 'Brak danych' ?>' pattern='{2,}|Brak danych'></td>
                                 <td><input style='width: 80px' name = 'data[<?php echo $i ?>][14]' value='<?php if ($_SESSION["data"][$i][14] != ''){ echo $_SESSION["data"][$i][14];} else echo 'Brak danych' ?>' pattern='{2,}|Brak danych'></td>
-                                <td><input type="text" name="example" list="exampleList">
-                                    <datalist id="exampleList">
-                                        <option value="A">
-                                        <option value="B">
-                                    </datalist></td>
                             </tr>
                         <?php } ?>
-                        <input class=' btn btn-dark m-2' type='submit' name='exportTxtFile' id='exportTxtFile' value='EXPORTUJ DO PLIKU TXT'>
-                        <input class=' btn btn-dark m-2' type='submit' name='exportXmlFile' id='exportXmlFile' value='EXPORTUJ DO PLIKU XML'>
+                        <input class=' btn btn-dark m-2 mt-5' type='submit' name='exportTxtFile' id='exportTxtFile' value='EXPORTUJ DO PLIKU TXT'>
+                        <input class=' btn btn-dark m-2 mt-5' type='submit' name='exportXmlFile' id='exportXmlFile' value='EXPORTUJ DO PLIKU XML'>
 
                         </form>
                     </tbody>
