@@ -1,0 +1,48 @@
+<laptops moddate="2015-10-30 T 10:15">
+    <laptop id="1">
+    <manufacturer>Asus</manufacturer>
+        <screen touch ="no">
+            <size>12"</size>
+            <resolution>1600x900</resolution>
+            <type>matowy</type>
+        </screen>
+        <processor>
+            <name>i7</name>
+            <physical_cores>8</physical_cores>
+            <clock_speed>3200</clock_speed>
+        </processor>
+        <ram>8GB</ram>
+        <disc type ="SSD">
+            <storage>240GB</storage>
+        </disc>
+        <graphic_card>
+            <name>intel HD Graphics 4000</name>
+            <memory>1GB</memory>
+        </graphic_card>
+        <os>Windows 7 Home</os>
+        <disc_reader>Blu-Ray</disc_reader>
+    </laptop>
+    <laptop id="2">
+    <manufacturer>Dell</manufacturer>
+    <screen touch ="yes">
+    <size>16"</size>
+    <resolution>1376x768</resolution>
+    <type/>
+    </screen>
+    <processor>
+    <name>i5</name>
+    <physical_cores>4</physical_cores>
+    <clock_speed/>
+    </processor>
+    <ram>16GB</ram>
+    <disc>
+    <storage>120GB</storage>
+    </disc>
+    <graphic_card>
+    <name>intel HD Graphics 5000</name>
+    <memory>2GB</memory>
+    </graphic_card>
+    <os>Windows Vista</os>
+    <disc_reader>brak</disc_reader>
+    </laptop>
+</laptops>

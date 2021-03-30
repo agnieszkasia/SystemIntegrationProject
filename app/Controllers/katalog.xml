@@ -1,0 +1,48 @@
+<laptops moddate="2021-03-30 T 13:13">
+  <laptop id="1">
+    <manufacturer>asus</manufacturer>
+    <screen touch="no">
+      <size/>
+      <resolution/>
+      <type/>
+    </screen>
+    <processor>
+      <name/>
+      <physical_cores/>
+      <clock_speed/>
+    </processor>
+    <ram>asus</ram>
+    <disc type="SSD">
+      <storage/>
+    </disc>
+    <graphic_card>
+      <name/>
+      <memory/>
+    </graphic_card>
+    <os>Windows</os>
+    <disc_reader>Blu-Ray</disc_reader>
+  </laptop>
+  <laptop id="2">
+    <manufacturer>asus</manufacturer>
+    <screen touch="no">
+      <size/>
+      <resolution/>
+      <type/>
+    </screen>
+    <processor>
+      <name/>
+      <physical_cores/>
+      <clock_speed/>
+    </processor>
+    <ram>asus</ram>
+    <disc type="SSD">
+      <storage/>
+    </disc>
+    <graphic_card>
+      <name/>
+      <memory/>
+    </graphic_card>
+    <os>Windows</os>
+    <disc_reader>Blu-Ray</disc_reader>
+  </laptop>
+</laptops>
