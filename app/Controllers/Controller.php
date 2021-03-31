@@ -40,6 +40,24 @@ if (array_key_exists('exportXmlFile', $_POST)){
     showData($data, $lineCount);
 }
 
+//wykonanie poleceń po kliknięciu przycisku importu z bazy danych
+if (array_key_exists('importDatabase', $_POST)){
+
+    require_once ('DatabaseController.php');
+    list($data, $lineCount) = getDataFromDatabase();
+    showData($data, $lineCount);
+}
+
+//wykonanie poleceń po kliknięciu przycisku eksportu do bazy danych
+if (array_key_exists('exportDatabase', $_POST)){
+
+    $data = $_POST['data'];
+    $lineCount = count($data);
+
+    require_once ('DatabaseController.php');
+    saveDataToDatabase($data, $lineCount);
+    showData($data, $lineCount);
+}
 
 //funkcja wysiwetlajaca dane
 function showData($data, $lineCount){

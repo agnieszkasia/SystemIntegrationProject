@@ -15,14 +15,20 @@
 <body>
     <div id="app">
         <div class="container-fluid">
-            <div class="row d-flex align-items-center">
-                <h2 class=" pl-5 mb-0 mr-auto">
-                    System Integration Web Application
-                </h2>
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <h2 class="pl-5 mb-0">
+                        System Integration Web Application
+                    </h2>
+                </div>
+
+                <div class="ml-auto">
                     <form method="post" action="../../app/Controllers/Controller.php">
-                        <input class="btn btn-dark m-2 mt-5 " type="submit" name="importTxtFile" id="importTxtFile" value="IMPORTUJ Z PLIKU TXT">
+                        <input class="btn btn-dark m-2 mt-5" type="submit" name="importTxtFile" id="importTxtFile" value="IMPORTUJ Z PLIKU TXT">
                         <input class="btn btn-dark m-2 mt-5" type="submit" name="importXmlFile" id="importXmlFile" value="IMPORTUJ Z PLIKU XML">
+                        <input class="btn btn-dark m-2 mt-5" type="submit" name="importDatabase" id="importDatabase" value="IMPORTUJ Z BAZY DANYCH">
                     </form>
+                </div>
 
 
                 <table class='table table-striped table-responsive'>
@@ -93,6 +99,7 @@
                         <?php }} ?>
                         <input class=' btn btn-dark m-2 mt-5' type='submit' name='exportTxtFile' id='exportTxtFile' value='EXPORTUJ DO PLIKU TXT'>
                         <input class=' btn btn-dark m-2 mt-5' type='submit' name='exportXmlFile' id='exportXmlFile' value='EXPORTUJ DO PLIKU XML'>
+                        <input class=' btn btn-dark m-2 mt-5' type='submit' name='exportDatabase' id='exportDatabase' value='EXPORTUJ DO BAZY DANYCH'>
 
                         </form>
                     </tbody>

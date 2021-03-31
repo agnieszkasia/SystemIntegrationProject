@@ -1,2 +1,0 @@
-Asus;12";1600x900;blyszczaca;nie;i7;8;3200;8GB;240GB;SSD;intel HD Graphics 4000;1GB;Windows 7 Home;Blu-Ray
-Dell;16";1376x768;;tak;i5;4;;16GB;120GB;;intel HD Graphics 5000;2GB;Windows Vista;brak
