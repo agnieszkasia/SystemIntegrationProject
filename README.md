@@ -6,6 +6,7 @@ Project is created with:
 * PHP 7.3
 * Bootstrap 4
 * XAMPP Apache server
+* MySQL database
 	
 ## Installation
 To run this project:
@@ -20,4 +21,6 @@ To run this project:
 * Export data to TXT file
 * Import data from XML file
 * Export data to XML file
+* Import data database
+* Export data database
 * Read and edit data
