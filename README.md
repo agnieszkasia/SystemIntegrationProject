@@ -1,5 +1,5 @@
 # System Integration Web Application
-Web application that processes data from txt and xml files.
+Web application that processes data from txt files, xml files and database.
 	
 ## Technologies
 Project is created with:
