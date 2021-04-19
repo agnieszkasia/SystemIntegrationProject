@@ -5,21 +5,19 @@ function getDataFromTxtFile(): array{
     $filename = "../../resources/dataFiles/katalog.txt";
     $file = fopen($filename, "r");
     $newData = array();
-    $lineCount = 0;
 
     if ($file) {
-        while (!feof($file)) {
-            $file2 = fread($file, 4096);
+        $file = fread($file, 4096);
 
-            $data=explode("\n", $file2);
-            $lineCount = count($data);
-
-            foreach ($data as $row){
-                $newData[]=explode(";", $row);
-
-            }
+        $data=explode("\n", $file);
+        for ($i =0; $i<count($data); $i++){
+            $data[$i] = substr($data[$i],0,-1);
         }
-        fclose($file);
+        $lineCount = count($data);
+
+        foreach ($data as $row){
+            $newData[]=explode(";", $row);
+        }
     } else {
         die("Blad otwierania pliku: $filename");
     }
@@ -37,6 +35,7 @@ function convertData($data, $lineCount): string{
             }
         }
         $new_data[$i] = implode(';',$data[$i]);
+        $new_data[$i] = $new_data[$i].';';
         $i++;
     }
 

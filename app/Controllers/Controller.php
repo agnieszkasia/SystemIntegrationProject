@@ -88,13 +88,21 @@ function showData($data, $lineCount){
     session_start();
     $_SESSION["data"]=$data;
     $_SESSION["lineCount"]=$lineCount;
+    $duplicatesNumber = 0;
+    for ($i = 0; $i<count($data); $i++){
+        if ($data[$i][15] == 'red') $duplicatesNumber += 1;
+    }
+    $newRowsNumber = count($data) - $duplicatesNumber;
+
+    $_SESSION["duplicatesNumber"]= $duplicatesNumber;
+    $_SESSION["newRowsNumber"]= $newRowsNumber;
+
     header('Location: ../../resources/views/showAll.php');
 }
 
-
-
 /* funkcja sprawdzająca powtórzenia w tablicy */
 function compareData($dataFromExport, $dataInTable): array{
+
 
     for ($i=0; $i<count($dataInTable); $i++){
         for ($j =0; $j<15; $j++){
