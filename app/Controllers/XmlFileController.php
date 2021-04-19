@@ -1,15 +1,17 @@
 <?php
 
 /* funkcja pobierajaca dane z pliku xml */
-function getDataFromXmlFile(){
+function getDataFromXmlFile(): array{
     $filename = "../../resources/dataFiles/katalog.xml";
     $xml = simplexml_load_file($filename);
     $data = array();
+    $color = array();
+
     $lineCount = 0;
 
     if ($xml) {
         $lineCount = count($xml->children());
-        $data = convertDataFromXml($xml, $lineCount);
+        list($data) = convertDataFromXml($xml, $lineCount);
     } else {
         echo 'Błąd ładowania pliku';
     }
@@ -17,7 +19,7 @@ function getDataFromXmlFile(){
 }
 
 /* funkcja konwertujaca dane XML na tablice danych */
-function convertDataFromXml($xml, $lineCount){
+function convertDataFromXml($xml, $lineCount): array{
 
     $data = array();
 
@@ -42,9 +44,10 @@ function convertDataFromXml($xml, $lineCount){
         $data[$i][12] = (string)$xml->laptop[$i]->graphic_card->memory;
         $data[$i][13] = (string)$xml->laptop[$i]->os;
         $data[$i][14] = (string)$xml->laptop[$i]->disc_reader;
+
     }
 
-    return $data;
+    return array($data);
 }
 
 /* funkcja zapisujaca dane do pliku xml */
@@ -85,6 +88,13 @@ function saveDataToXmlFile($data, $lineCount){
         /* manufacturer tag */
         $manufacturer = $file->createElement("manufacturer", $data[$i][0]);
         $laptop->appendChild($manufacturer);
+
+
+        if ($data[$i][4] == 'nie') {
+            $data[$i][4] = 'no';
+        } elseif ($data[$i][4] == 'tak'){
+            $data[$i][4] = 'yes';
+        }
 
         /* screen tag */
         $screen = $file->createElement("screen");

@@ -1,30 +1,33 @@
 <?php
 
 /* funkcja pobierajaca dane z pliku txt */
-function getDataFromTxtFile(){
+function getDataFromTxtFile(): array{
     $filename = "../../resources/dataFiles/katalog.txt";
     $file = fopen($filename, "r");
-    $data = array();
+    $newData = array();
     $lineCount = 0;
 
     if ($file) {
         while (!feof($file)) {
-            $lineCount++;
-            $buffer = fgets($file, 4096);
-            $data[]=explode(";", $buffer);
+            $file2 = fread($file, 4096);
+
+            $data=explode("\n", $file2);
+            $lineCount = count($data);
+
+            foreach ($data as $row){
+                $newData[]=explode(";", $row);
+
+            }
         }
         fclose($file);
     } else {
         die("Blad otwierania pliku: $filename");
     }
-//    print_r($data);
-    return array($data, $lineCount);
+    return array($newData, $lineCount);
 }
 
-
-
 /* funkcja konwertujaca tablice na string */
-function convertData($data, $lineCount){
+function convertData($data, $lineCount): string{
     $i = 0;
     $new_data = array();
     while ($i<$lineCount){

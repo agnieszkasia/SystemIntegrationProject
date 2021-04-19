@@ -1,7 +1,5 @@
 <?php
 
-
-
 /* funkcja pobierajaca dane z pliku txt */
 function getDataFromDatabase(): array{
     $con = connectToDatabase();
@@ -43,6 +41,15 @@ function getDataFromDatabase(): array{
 function saveDataToDatabase($data, $lineCount){
     $con = connectToDatabase();
 
+    /* konwersja z wertości 'Brak danych' na puste pole */
+    for ($i = 0; $i<$lineCount;$i++){
+        for ($j =0; $j<count($data[$i]); $j++){
+            if ($data[$i][$j] == 'Brak danych'){
+                $data[$i][$j] = '';
+            }
+        }
+    }
+
     $sql = "TRUNCATE TABLE `laptops`";
     mysqli_query($con, $sql);
     for ($i = 0; $i<$lineCount; $i++){
@@ -59,9 +66,6 @@ function saveDataToDatabase($data, $lineCount){
         mysqli_query($con, $sql);
     }
 }
-
-
-
 
 function connectToDatabase(): mysqli {
     $con = mysqli_connect('localhost','root','', 'systemintegrationproject');

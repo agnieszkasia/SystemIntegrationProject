@@ -5,7 +5,12 @@ if (array_key_exists('importTxtFile', $_POST)){
 
     require_once ('TxtFileController.php');
     list($data, $lineCount) = getDataFromTxtFile();
-    showData($data, $lineCount);
+
+    if (array_key_exists('data', $_POST)) {
+        $dataInTable = $_POST['data'];
+        $data = compareData($data, $dataInTable);
+    }
+    showData($data, count($data));
 }
 
 //wykonanie poleceń po kliknięciu przycisku eksportu do pliku txt
@@ -18,6 +23,7 @@ if (array_key_exists('exportTxtFile', $_POST)){
     $fullData = convertData($data, $lineCount);
 
     saveDataToTxtFile($fullData);
+
     showData($data, $lineCount);
 }
 
@@ -26,7 +32,12 @@ if (array_key_exists('importXmlFile', $_POST)){
 
     require_once ('XmlFileController.php');
     list($data, $lineCount) = getDataFromXmlFile();
-    showData($data, $lineCount);
+
+    if (array_key_exists('data', $_POST)) {
+        $dataInTable = $_POST['data'];
+        $data = compareData($data, $dataInTable);
+    }
+    showData($data, count($data));
 }
 
 //wykonanie poleceń po kliknięciu przycisku eksportu do pliku xml
@@ -37,6 +48,7 @@ if (array_key_exists('exportXmlFile', $_POST)){
 
     require_once ('XmlFileController.php');
     saveDataToXmlFile($data, $lineCount);
+
     showData($data, $lineCount);
 }
 
@@ -45,7 +57,13 @@ if (array_key_exists('importDatabase', $_POST)){
 
     require_once ('DatabaseController.php');
     list($data, $lineCount) = getDataFromDatabase();
-    showData($data, $lineCount);
+
+    var_dump($data);
+    if (array_key_exists('data', $_POST)) {
+        $dataInTable = $_POST['data'];
+        $data = compareData($data, $dataInTable);
+    }
+    showData($data, count($data));
 }
 
 //wykonanie poleceń po kliknięciu przycisku eksportu do bazy danych
@@ -56,8 +74,14 @@ if (array_key_exists('exportDatabase', $_POST)){
 
     require_once ('DatabaseController.php');
     saveDataToDatabase($data, $lineCount);
+
     showData($data, $lineCount);
 }
+
+if (array_key_exists('clear', $_POST)){
+    showData(null,0);
+}
+
 
 //funkcja wysiwetlajaca dane
 function showData($data, $lineCount){
@@ -66,3 +90,39 @@ function showData($data, $lineCount){
     $_SESSION["lineCount"]=$lineCount;
     header('Location: ../../resources/views/showAll.php');
 }
+
+
+
+/* funkcja sprawdzająca powtórzenia w tablicy */
+function compareData($dataFromExport, $dataInTable): array{
+
+    for ($i=0; $i<count($dataInTable); $i++){
+        for ($j =0; $j<15; $j++){
+            if ($dataInTable[$i][$j] == 'Brak danych'){
+                $dataInTable[$i][$j] = '';
+            }
+        }
+    }
+
+    $data = array_merge($dataFromExport, $dataInTable);
+
+    $uniqueData = array();
+
+    $i=0;
+    foreach ($data as $row){
+        if (!in_array($row, $uniqueData)){
+            $uniqueData[$i] = $row;
+            $i++;
+        }
+    }
+
+    $i=0;
+    foreach ($uniqueData as $row){
+        if (in_array($row,$dataFromExport) && in_array($row, $dataInTable)){
+            $uniqueData[$i][15] = 'red';
+        }
+        $i++;
+    }
+    return $uniqueData;
+}
+
