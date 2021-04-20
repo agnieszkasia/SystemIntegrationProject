@@ -24,8 +24,8 @@
                     <h2 class="pl-5 mb-0">
                         System Integration Web Application
                     </h2>
-                    <div class="mt-3">Nowe rekordy: <?php session_start();
-                    echo $_SESSION["newRowsNumber"]  ?> Duplikaty: <?php echo $_SESSION["duplicatesNumber"] ?></div>
+                    <div class="mt-3">Nowe rekordy: <?php session_start(); if ($_SESSION['newRowsNumber']) echo $_SESSION["newRowsNumber"] ?>
+                        Duplikaty: <?php if ($_SESSION['duplicatesNumber']) echo $_SESSION["duplicatesNumber"] ?></div>
                 </div>
 
 
