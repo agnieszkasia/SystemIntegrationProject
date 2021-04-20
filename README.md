@@ -24,3 +24,4 @@ To run this project:
 * Import data database
 * Export data database
 * Read and edit data
+* Count and show number of duplicates and new rows
