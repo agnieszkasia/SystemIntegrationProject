@@ -142,39 +142,14 @@ function getLaptopsByScreenType($screenType){
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result)>0) {
         foreach ($result as $row) {
-//            foreach ($row as $cos){
-//
-//                $str[] = implode(';',$cos);
-//            }
-            $str[] = implode(';',$row);
+            $str[] = json_encode($row);
         }
-        $str2 = implode('|',$str);
-
+        $jsonstring = json_encode($str);
+        return $jsonstring;
 
     }
 
-    return $str2;
-
 }
-//    $con = connectToDatabase();
-//
-//    $sql = "SELECT * FROM `laptops` where screen_type like '%$screenType%'";
-//    $result = mysqli_query($con, $sql);
-//
-//    $response = "";
-//
-//    if (mysqli_num_rows($result)>0){
-//        foreach ($result as $row){
-//            foreach ($row as $cos){
-//
-//                $str = implode(';',$row);
-//            }
-//            $str2 = implode(';',$str);
-//        }
-//        return "123";
-//    }
-//
-//}
 
 function getLaptopsScreenType(){
     $con = connectToDatabase();
@@ -187,15 +162,14 @@ function getLaptopsScreenType(){
 
 
         foreach ($result as $row){
-            $screenType[] = $row['screen_type'];
+            if ($row['screen_type'] == 'blyszczaca') $screenType[]='błyszcząca';
+            else $screenType[] = $row['screen_type'];
         }
         $str = implode(';',$screenType);
         return $str;
     }
 
 }
-
-
 
 function getLaptopsByScreenProportion($screenProportion){
     $con = connectToDatabase();
@@ -205,24 +179,12 @@ function getLaptopsByScreenProportion($screenProportion){
     $quantity = 0;
 
     if (mysqli_num_rows($result) >0 ) {
-        $proportion = array();
-
 
         foreach ($result as $row) {
             $resolution = $row['screen_resolution'];
             $resolution_XY = explode('x',$resolution);
 
-            $a=$resolution_XY[0];
-            $b=$resolution_XY[1];
-            while($a!=$b){
-                if($a>$b) $a=$a-$b;
-                else $b=$b-$a;
-            }
-            $NWD = $a;
-
-            $proportion_X = $resolution_XY[0]/$NWD;
-            $proportion_Y = $resolution_XY[1]/$NWD;
-
+            list($proportion_X, $proportion_Y) = getProportion($resolution_XY);
 
             $proportion = $proportion_X.":".$proportion_Y;
 
@@ -250,17 +212,7 @@ function getLaptopsScreenProportion(){
             $resolution = $row['screen_resolution'];
             $resolution_XY = explode('x',$resolution);
 
-            $a=$resolution_XY[0];
-            $b=$resolution_XY[1];
-            while($a!=$b){
-                if($a>$b) $a=$a-$b;
-                else $b=$b-$a;
-            }
-            $NWD = $a;
-
-            $proportion_X = $resolution_XY[0]/$NWD;
-            $proportion_Y = $resolution_XY[1]/$NWD;
-
+            list($proportion_X, $proportion_Y) = getProportion($resolution_XY);
 
             $screenProportion[] = $proportion_X.":".$proportion_Y;
         }
@@ -272,4 +224,19 @@ function getLaptopsScreenProportion(){
         return $str;
     }
 
+}
+
+function getProportion($resolution_XY){
+    $a=$resolution_XY[0];
+    $b=$resolution_XY[1];
+    while($a!=$b){
+        if($a>$b) $a=$a-$b;
+        else $b=$b-$a;
+    }
+    $NWD = $a;
+
+    $proportion_X = $resolution_XY[0]/$NWD;
+    $proportion_Y = $resolution_XY[1]/$NWD;
+
+    return array($proportion_X, $proportion_Y);
 }
