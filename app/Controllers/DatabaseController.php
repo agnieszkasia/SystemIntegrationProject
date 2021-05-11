@@ -102,3 +102,174 @@ function initialize(){
     PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     mysqli_query($con, $init);
 }
+
+
+function getQuantityOfLaptopsByManufacturer($manufacturer){
+    $con = connectToDatabase();
+
+    $sql = "SELECT * FROM `laptops` where manufacturer like '%$manufacturer%'";
+    $result = mysqli_query($con, $sql);
+
+        return mysqli_num_rows($result);
+
+}
+
+function getLaptopByManufacturers(){
+    $con = connectToDatabase();
+
+    $sql = "SELECT DISTINCT manufacturer FROM `laptops`";
+    $result = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($result) >0 ){
+        $manufacturer = array();
+
+
+        foreach ($result as $row){
+            $manufacturer[] = $row['manufacturer'];
+        }
+        $str = implode(';',$manufacturer);
+        return $str;
+    }
+
+}
+
+
+function getLaptopsByScreenType($screenType){
+
+    $con = connectToDatabase();
+
+    $sql = "SELECT * FROM `laptops` where screen_type like '%$screenType%'";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result)>0) {
+        foreach ($result as $row) {
+//            foreach ($row as $cos){
+//
+//                $str[] = implode(';',$cos);
+//            }
+            $str[] = implode(';',$row);
+        }
+        $str2 = implode('|',$str);
+
+
+    }
+
+    return $str2;
+
+}
+//    $con = connectToDatabase();
+//
+//    $sql = "SELECT * FROM `laptops` where screen_type like '%$screenType%'";
+//    $result = mysqli_query($con, $sql);
+//
+//    $response = "";
+//
+//    if (mysqli_num_rows($result)>0){
+//        foreach ($result as $row){
+//            foreach ($row as $cos){
+//
+//                $str = implode(';',$row);
+//            }
+//            $str2 = implode(';',$str);
+//        }
+//        return "123";
+//    }
+//
+//}
+
+function getLaptopsScreenType(){
+    $con = connectToDatabase();
+
+    $sql = "SELECT DISTINCT screen_type FROM `laptops`";
+    $result = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($result) >0 ){
+        $screenType = array();
+
+
+        foreach ($result as $row){
+            $screenType[] = $row['screen_type'];
+        }
+        $str = implode(';',$screenType);
+        return $str;
+    }
+
+}
+
+
+
+function getLaptopsByScreenProportion($screenProportion){
+    $con = connectToDatabase();
+
+    $sql = "SELECT screen_resolution FROM `laptops`";
+    $result = mysqli_query($con, $sql);
+    $quantity = 0;
+
+    if (mysqli_num_rows($result) >0 ) {
+        $proportion = array();
+
+
+        foreach ($result as $row) {
+            $resolution = $row['screen_resolution'];
+            $resolution_XY = explode('x',$resolution);
+
+            $a=$resolution_XY[0];
+            $b=$resolution_XY[1];
+            while($a!=$b){
+                if($a>$b) $a=$a-$b;
+                else $b=$b-$a;
+            }
+            $NWD = $a;
+
+            $proportion_X = $resolution_XY[0]/$NWD;
+            $proportion_Y = $resolution_XY[1]/$NWD;
+
+
+            $proportion = $proportion_X.":".$proportion_Y;
+
+
+            if ($proportion==$screenProportion){
+                $quantity++;
+            }
+        }
+    }
+    return $quantity;
+
+}
+
+function getLaptopsScreenProportion(){
+    $con = connectToDatabase();
+
+    $sql = "SELECT DISTINCT screen_resolution FROM `laptops`";
+    $result = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($result) >0 ){
+        $screenProportion = array();
+
+
+        foreach ($result as $row){
+            $resolution = $row['screen_resolution'];
+            $resolution_XY = explode('x',$resolution);
+
+            $a=$resolution_XY[0];
+            $b=$resolution_XY[1];
+            while($a!=$b){
+                if($a>$b) $a=$a-$b;
+                else $b=$b-$a;
+            }
+            $NWD = $a;
+
+            $proportion_X = $resolution_XY[0]/$NWD;
+            $proportion_Y = $resolution_XY[1]/$NWD;
+
+
+            $screenProportion[] = $proportion_X.":".$proportion_Y;
+        }
+
+        $screenProportion = array_unique($screenProportion);
+
+
+        $str = implode(';',$screenProportion);
+        return $str;
+    }
+
+}

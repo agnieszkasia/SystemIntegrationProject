@@ -1,48 +1,71 @@
-<laptops moddate="2015-10-30 T 10:15">
-<laptop id="1">
-<manufacturer>Asus</manufacturer>
-<screen touch ="no">
-<size>12"</size>
-<resolution>1600x900</resolution>
-<type>matowy</type>
-</screen>
-<processor>
-<name>i7</name>
-<physical_cores>8</physical_cores>
-<clock_speed>3200</clock_speed>
-</processor>
-<ram>8GB</ram>
-<disc type ="SSD">
-<storage>240GB</storage>
-</disc>
-<graphic_card>
-<name>intel HD Graphics 4000</name>
-<memory>1GB</memory>
-</graphic_card>
-<os>Windows 7 Home</os>
-<disc_reader>Blu-Ray</disc_reader>
-</laptop>
-<laptop id="2">
-<manufacturer>Dell</manufacturer>
-<screen touch ="yes">
-<size>16"</size>
-<resolution>1376x768</resolution>
-<type/>
-</screen>
-<processor>
-<name>i5</name>
-<physical_cores>4</physical_cores>
-<clock_speed/>
-</processor>
-<ram>16GB</ram>
-<disc>
-<storage>120GB</storage>
-</disc>
-<graphic_card>
-<name>intel HD Graphics 5000</name>
-<memory>2GB</memory>
-</graphic_card>
-<os>Windows Vista</os>
-<disc_reader>brak</disc_reader>
-</laptop>
+<laptops moddate="2021-04-19 T 19:58">
+  <laptop id="1">
+    <manufacturer>Asus</manufacturer>
+    <screen touch="no">
+      <size>14"</size>
+      <resolution>1600x900</resolution>
+      <type>matowa</type>
+    </screen>
+    <processor>
+      <name>intel i5</name>
+      <physical_cores>4</physical_cores>
+      <clock_speed/>
+    </processor>
+    <ram>16GB</ram>
+    <disc type="SSD">
+      <storage>120GB</storage>
+    </disc>
+    <graphic_card>
+      <name>intel HD Graphics 5000</name>
+      <memory>1GB</memory>
+    </graphic_card>
+    <os/>
+    <disc_reader>brak</disc_reader>
+  </laptop>
+  <laptop id="2">
+    <manufacturer>Fujitsu</manufacturer>
+    <screen touch="yes">
+      <size>14"</size>
+      <resolution>1920x1080</resolution>
+      <type>blyszczaca</type>
+    </screen>
+    <processor>
+      <name>intel i7</name>
+      <physical_cores>8</physical_cores>
+      <clock_speed>1900</clock_speed>
+    </processor>
+    <ram>24GB</ram>
+    <disc type="SSD">
+      <storage>500GB</storage>
+    </disc>
+    <graphic_card>
+      <name>intel HD Graphics 520</name>
+      <memory>1GB</memory>
+    </graphic_card>
+    <os>brak systemu</os>
+    <disc_reader>Blu-Ray</disc_reader>
+  </laptop>
+  <laptop id="3">
+    <manufacturer>Samsung</manufacturer>
+    <screen touch="no">
+      <size>15"</size>
+      <resolution>1920x1080</resolution>
+      <type>matowa</type>
+    </screen>
+    <processor>
+      <name>intel i9</name>
+      <physical_cores/>
+      <clock_speed/>
+    </processor>
+    <ram/>
+    <disc type="SSD">
+      <storage/>
+    </disc>
+    <graphic_card>
+      <name>intel HD Graphics 4000</name>
+      <memory>2GB</memory>
+    </graphic_card>
+    <os>Windows 10 Profesional</os>
+    <disc_reader>Blu-Ray</disc_reader>
+  </laptop>
 </laptops>

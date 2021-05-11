@@ -89,11 +89,12 @@ function showData($data, $lineCount){
     $_SESSION["data"]=$data;
     $_SESSION["lineCount"]=$lineCount;
     $duplicatesNumber = 0;
+    $newRowsNumber = 0;
     for ($i = 0; $i<count($data); $i++){
         if ($data[$i][15] == 'red') $duplicatesNumber += 1;
     }
     $newRowsNumber = count($data) - $duplicatesNumber;
-
+var_dump($newRowsNumber);
     $_SESSION["duplicatesNumber"]= $duplicatesNumber;
     $_SESSION["newRowsNumber"]= $newRowsNumber;
 
