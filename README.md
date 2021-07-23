@@ -25,7 +25,16 @@ To run this project:
 * Import data database
 * Export data database
 * Read and edit data
+* Highlight duplicates (red) and edited rows (white)
 * Count and show number of duplicates and new rows
 * Return webService with the number of records in the database filtered on the basis of the manufacturer provided by the customer
 * Return webService with data from the database filtered on the basis of the screen type provided by the customer
 * Return webService with the number of laptops with a given screen proportion (e.g. 16x9, 16x10)
+
+![System Integration Project](./images/1.jpg)
+
+![System Integration Project - export](./images/2.jpg)
+
+![System Integration Project - export from 2 sources](./images/3.jpg)
+
+![System Integration Project - edit row](./images/4.jpg)
